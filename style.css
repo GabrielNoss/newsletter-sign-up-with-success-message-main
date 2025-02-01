@@ -1,0 +1,195 @@
+:root {
+--Tomato: hsl(4, 100%, 67%);
+
+    /*### Neutral*/
+
+--Dark-Slate-Grey: hsl(234, 29%, 20%);
+--Charcoal-Grey: hsl(235, 18%, 26%);
+--Grey: hsl(231, 7%, 60%);
+--White: hsl(0, 0%, 100%);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--Charcoal-Grey);
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    font-size: 16px;
+    display: grid;
+    line-height: 1.6;
+    place-content: center;
+}
+.container {
+   background-color: var(--White);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 955px;
+    margin: 0 auto;
+    border-radius: 24px;
+    padding: 1.5rem;
+}
+.container .left-content {
+    color: var(--Dark-Slate-Grey);
+    padding: 4rem 2rem 2rem 2rem;
+}
+.container .left-content > h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+.container .left-content ul > li {
+    list-style: url(./assets/images/icon-list.svg);
+    list-style-position: inside;
+    margin-top: 10px;
+}
+.left-content, p, 
+.left-content ul  {
+    margin-bottom: 1.5rem;
+}
+
+/*Form*/
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+}
+.form-item label {
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+.form-item label .invalid-email { /*Se activa cuando hay error*/
+    color: var(--Tomato); /*Color del mensaje*/
+    display: none;
+}
+.form-item label .invalid-email.active {
+    display: block;
+}
+.form-item .email-label {
+    margin-bottom: 5px;
+}
+.form-item input {
+    border: 1px solid var(--Grey);
+}
+input.invalid {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid var(--Tomato);
+    color: var(--Tomato);
+}
+.form-item #email,
+.form-item .submit-btn {
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.1rem;
+}
+.form-item .submit-btn {
+    cursor: pointer;
+    color: var(--White);
+    background-color: var(--Dark-Slate-Grey);
+    font-weight: 700;
+    border: none;
+    outline: none;
+}
+.form-item .submit-btn:hover {
+    background: linear-gradient(127deg, rgba(255, 63, 124, 1)40%, rgba(255, 154, 34, 1) 70%);
+}
+
+/*Right side - image */
+.right {
+    text-align: right;
+}
+
+.success-message {
+    display: none;
+    width: 50%;
+    background-color: var(--White);
+    padding: 2rem;
+    border-radius: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10;
+}
+.success-message.active {
+    display: block;
+}
+.success-message img {
+    width: 50px;
+}
+.success-message h2 {
+    color: var(--Dark-Slate-Grey);
+    font-weight: 700;
+    font-size: 2.9rem;
+    line-height: 1;
+    margin-top: 15px;
+}
+.success-message p {
+    margin: 2rem 2rem 2rem 0;
+    width: 85%;
+    padding-right: 50px;
+    color: var(--Dark-Slate-Grey);
+    font-size: 1rem;
+
+}
+#user-email {
+    font-weight: 700;
+}
+.success-message .dismiss-btn {
+   cursor: pointer;
+   background-color: var(--Dark-Slate-Grey);
+   color: var(--White);
+   border: none;
+   font-weight: 700;
+   padding: 1rem 2.2rem;
+   border-radius: 8px;
+   width: 100%;
+}
+.dismiss-btn:hover {
+    background: linear-gradient(127deg, rgba(255, 63, 124, 1)40%, rgba(255, 154, 34, 1) 70%);
+}
+
+
+/*Mobile*/
+@media (max-width: 768px) {
+    body {
+        display: initial;
+        line-height: 1.4;
+    }
+    .container {
+        width: 100%;
+        height: initial;
+        padding: 0;
+        grid-template-columns: 1fr;
+    }
+    .success-message {
+        display: block;
+        padding: initial;
+    }
+    .left-content {
+        padding: 1rem 2rem;
+        grid-row: 2;
+    }
+    .left-content p {
+        padding-right: 1rem;
+    }
+    .left-content ul li {
+        margin-bottom: 1rem;
+    }
+    .right img {
+       width: 100%; 
+    }
+    .success-message.active {
+        height: 100vh;
+        width: 100%;
+        padding: 14rem 2rem 2rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .success-message button {
+        margin-top: auto;
+    }
+}
