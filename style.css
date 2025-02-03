@@ -165,7 +165,8 @@ input.invalid {
         grid-template-columns: 1fr;
     }
     .success-message {
-        display: block;
+        display: none;
+        opacity: 0;
         padding: initial;
     }
     .left-content {
